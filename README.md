@@ -39,3 +39,18 @@ to represent the difference between your `HOME` environment variable
 and the path to this main project directory. Ultimately, `handle` needs
 to point to the place from which you'd `run` (`python app/app.py`) the 
 Dash application.
+
+#### Run your `tests`
+
+Run the following `py.test` command from the main project directory
+to run the any files starting with test\_ in the `tests` directory. This
+runs all tests.
+
+```bash
+$ pytest -vv
+```
+
+Run a specific test, `test_my_specific_test_case.py`:
+```bash
+$ pytest tests/test_my_specific_test_case.py
+```
