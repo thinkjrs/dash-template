@@ -1,7 +1,7 @@
 # dash-template
 A Dash template setup I use for component development
 
-#### Quick setup
+### Quick setup
 
 *Clone* the repo:
 ```bash
@@ -24,7 +24,7 @@ $ conda activate dash-template
 python app/app.py
 ```
 
-#### Configuration
+### Configuration
 
 Tests and application code are separate and both need to be run from the
 main project directory (i.e. the directory name you cloned this into).
@@ -40,7 +40,7 @@ and the path to this main project directory. Ultimately, `handle` needs
 to point to the place from which you'd `run` (`python app/app.py`) the 
 Dash application.
 
-#### Run your `tests`
+### Run your `tests`
 
 Run the following `py.test` command from the main project directory
 to run the any files starting with test\_ in the `tests` directory. This
