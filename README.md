@@ -52,5 +52,5 @@ $ pytest -vv
 
 Run a specific test, `test_my_specific_test_case.py`:
 ```bash
-$ pytest tests/test_my_specific_test_case.py
+$ pytest tests/test_my_specific_test_case.py -vv
 ```
