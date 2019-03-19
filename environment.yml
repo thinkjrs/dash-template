@@ -1,0 +1,19 @@
+name: dash-template
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.6
+  - pytest
+  - ipython
+  - pandas
+  - numpy
+  - dash
+  - dash-html-components
+  - dash-core-components
+  - dash-table
+  - dash-daq
+  - plotly
+  - black
+    
