@@ -1,0 +1,68 @@
+/*
+ * CSS for the Dash html app within app.py
+ *
+*/
+@import "https://fonts.googleapis.com/css?family=Roboto";
+
+#status-bar {
+    padding-top: 10px !important;
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+}
+#industry-dashboard-content {
+    padding-top: 10px !important;
+}
+#status-bar {
+}
+.card {
+    width: 20% !important;/* width = 1 / num(cards) */
+    border: 0px !important;
+}
+.card-header {
+    border-width: 2px !important;
+}
+.card-footer {
+    border-width: 2px !important;
+}
+#industry-dashboard-index-col {
+    padding-right: 7px !important;
+}
+
+#industry-dashboard-mvfrontier-col {
+    padding-left: 7px !important;
+}
+
+/*
+ * Plot styling
+ */
+
+.svg-container {
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.plotly {
+    font-family: 'Roboto', sans-serif !important;
+    margin: 0px !important;
+}
+#industry-index-overview-g {
+    margin-left: 0px !important;
+}
+#allocation-stacked-recommendation-col {
+    margin-top: 15px !important;
+}
+
+._dash-undo-redo {
+    display: none;
+}
+
+#portfolio-allocation-graphic-header {
+    margin-top: 15px !important;
+    margin-bottom: 0px !important;
+    font-size: 1.05rem !important;
+}
+
+.body {
+    margin: 0px;
+}
+
+html, body { overflow-x: hidden !important; }

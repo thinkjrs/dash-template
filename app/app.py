@@ -7,16 +7,14 @@ Main Dash/Flask application code.
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from static.index import index_string
+from static.index import MFDash
 
 external_stylesheets = None
 external_scripts = None
 
-app = dash.Dash(__name__,
+app = MFDash(__name__,
                 external_stylesheets = external_stylesheets,
                 external_scripts = external_scripts,)
-
-app.index_string = index_string
 
 app.layout = html.Div(children=[
     dcc.Graph(id='test-graph',
