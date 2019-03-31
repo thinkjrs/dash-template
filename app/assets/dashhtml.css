@@ -69,10 +69,10 @@
 
 .navbar {
     padding: 0px 0px 0px 0px !important;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 0px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    border: none !important;
+    border-radius: 0px !important;
+    margin-bottom: 0px !important;
+    box-shadow-top: 0px !important;
 }
 @import "https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i";
 /*
@@ -125,7 +125,12 @@ a:focus {
     outline: none !important;
     border: none;
 }
-
+#navbar-search-button {
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    background: none !important;
+}
 .btn {
     background: inherit !important;
 }

@@ -3,7 +3,7 @@ app.py
 
 Main Dash/Flask application code.
 """
-
+import flask
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -32,86 +32,70 @@ app = MFDash(__name__,
                 external_stylesheets = external_stylesheets,
                 external_scripts = external_scripts,)
 #app.config['suppress_callback_exceptions']=True
-def navbar_layout():
-    return html.Nav(className='navbar navbar-expand navbar-light bg-dark',
-            children=[
-                html.Div(id='navbar-button-container', 
-                    className='container-fluid',
-                    children=[
-                        html.Button(type='button', id='sidebarCollapse',
-                            className='btn', children=[
-                                html.I(className='fas fa-align-left'),
-                            ],
-                        ),
-                        html.Form(className='form-inline my-2', 
-                            children=[
-                                dcc.Input(id='navbar-search',
+
+app.layout = html.Div(id='dash-container-fluid', children=[
+    html.Nav(className='navbar sticky-top navbar-expand navbar-light bg-light',
+        children=[
+            html.Div(className='col-xs-1 mr-auto',
+                children=[
+                    html.Button(type='button', id='sidebarCollapse',
+                        className='btn', children=[
+                            html.I(className='fas fa-align-left'),
+                        ],
+                    ),
+                ],
+            ),
+            html.Div(className='col-xs-9',
+                children=[
+                    html.Div(className='row', 
+                        children=[
+                            html.Div(className='col-xs-10', 
+                                children=dcc.Input(id='navbar-search',
                                     placeholder='Artist search',
-                                    type='text',
+                                    type='search',
                                     value='',
+                                    className='form-control',
                                 ),
-                            ],
-                        ),
-                    ],
-                ),
-            ],
-    )
-app.layout = html.Div(id='dash-hell', children=[
-    html.Nav(className='navbar navbar-expand navbar-light bg-light',
-            children=[
-                html.Div(id='navbar-button-container', 
-                    className='container-fluid',
-                    children=[
-                        html.Button(type='button', id='sidebarCollapse',
-                            className='btn', children=[
-                                html.I(className='fas fa-align-left'),
-                            ],
-                        ),
-                        html.Form(className='form-inline my-2', 
-                            children=[
-                                dcc.Input(id='navbar-search',
-                                    placeholder='Artist search',
-                                    type='text',
-                                    value=None,
+                            ),
+                            html.Div(className='col-xs-2',
+                                children=html.Button("Submit", 
+                                    className='btn btn-secondary text-secondary',
+                                    type='button', 
+                                    id="userButton-navbar",
                                 ),
-                                html.Button('Submit', id='button-search'),
-                            ],
-                        ),
-                    ],
-                ),
-            ],
+                            ),
+                        ], #style={'display':'inline-block'},
+                    ),
+                ],
+            ),
+            html.Div(className='col-xs-1 ml-auto',
+
+                children=[
+                    html.Button(className='button',
+                        type='button', 
+                        id='navbar-search-button',
+                        children=html.I(className="fas fa-user"),
+                    ),
+                ],
+            ),
+        ],
     ),
-    html.P(id='search-submit'),
+    html.H2(id='search-submit', ),
     dcc.Graph(id='test-graph',
-              figure = {
-                  'data': [
-                      {
-                          'y': [1.4, 1.3, 1.45, 1.6],
-                          'x': [0, 1, 2, 3],
-                          'type': 'scatter',
-                          'name': 'Test Line Graph',
-                      },
-                  ],
-                  'layout': {
-                       'title': 'Test Line Graph Visualization',
-                  },
-              },
-    ),
-])
-@app.callback(
-    Output('search-submit', 'children'),
-    [
-        Input('button-search', 'n_clicks'),
-        #Input('navbar-search', 'n_blur'),
-    ],
-    [
-        State('navbar-search', 'value'),
+                  ),
+    html.Div(id='output',),
+
+    html.Div(id='test-div', style={'display':'none'}),
     ]
 )
-def update_search_output(nsub, nblur, val):
-    if val is not None and nsub:
-        return f"You searched for {val}"
-
-
+@app.callback(
+    Output('output', 'children'),
+    [Input('navbar-search-button', 'n_clicks')],
+    state=[State('navbar-search', 'value')]
+)
+def compute(n_clicks, query):
+    if n_clicks is None:
+        pass
+    return f"{query}"
 if __name__ == '__main__':
     app.run_server(debug=True)
