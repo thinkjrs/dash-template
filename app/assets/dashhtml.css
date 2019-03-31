@@ -125,11 +125,43 @@ a:focus {
     outline: none !important;
     border: none;
 }
+#navbar-search {
+    height: 2rem !important;
+    padding-right: 0px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    outline: none;
+    border: none;
+}
+.row {
+    align-items: 'center' !important;
+}
 #navbar-search-button {
+    height: 2rem !important;
+    margin: 5px 5px 5px 5px !important;
+    outline: none !important;
+    border: none !important;
+    background: none !important;
+}
+.fas .fas-search {
+    height: .8rem !important;
+}
+#userButton-navbar {
     box-shadow: none !important;
     outline: none !important;
     border: none !important;
     background: none !important;
+    margin: auto !important;
+}
+.no-gutters{
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+
+    > .col,
+    > [class*="col-"] {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
 }
 .btn {
     background: inherit !important;

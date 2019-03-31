@@ -31,7 +31,6 @@ nav = '''
 app = MFDash(__name__,
                 external_stylesheets = external_stylesheets,
                 external_scripts = external_scripts,)
-#app.config['suppress_callback_exceptions']=True
 
 app.layout = html.Div(id='dash-container-fluid', children=[
     html.Nav(className='navbar sticky-top navbar-expand navbar-light bg-light',
@@ -47,7 +46,7 @@ app.layout = html.Div(id='dash-container-fluid', children=[
             ),
             html.Div(className='col-xs-9',
                 children=[
-                    html.Div(className='row', 
+                    html.Div(className='row no-gutters align-items-center', 
                         children=[
                             html.Div(className='col-xs-10', 
                                 children=dcc.Input(id='navbar-search',
@@ -58,38 +57,36 @@ app.layout = html.Div(id='dash-container-fluid', children=[
                                 ),
                             ),
                             html.Div(className='col-xs-2',
-                                children=html.Button("Submit", 
-                                    className='btn btn-secondary text-secondary',
-                                    type='button', 
-                                    id="userButton-navbar",
+                                children=html.Button(
+                                    className='btn',
+                                    type='submit', 
+                                    id="navbar-search-button",
+                                    children=html.I(className='fas fa-search'),
                                 ),
                             ),
-                        ], #style={'display':'inline-block'},
+                        ],
                     ),
                 ],
             ),
             html.Div(className='col-xs-1 ml-auto',
-
                 children=[
                     html.Button(className='button',
                         type='button', 
-                        id='navbar-search-button',
+                        id='userButton-navbar',
                         children=html.I(className="fas fa-user"),
                     ),
                 ],
             ),
         ],
     ),
-    html.H2(id='search-submit', ),
-    dcc.Graph(id='test-graph',
-                  ),
-    html.Div(id='output',),
-
-    html.Div(id='test-div', style={'display':'none'}),
-    ]
-)
+    html.Div(className='row no-gutters',
+        children=[
+            html.H2(className='col-xs text-center', id='search-submit', ),
+        ],
+    ),
+],)
 @app.callback(
-    Output('output', 'children'),
+    Output('search-submit', 'children'),
     [Input('navbar-search-button', 'n_clicks')],
     state=[State('navbar-search', 'value')]
 )
@@ -97,5 +94,8 @@ def compute(n_clicks, query):
     if n_clicks is None:
         pass
     return f"{query}"
+
+
+
 if __name__ == '__main__':
     app.run_server(debug=True)
