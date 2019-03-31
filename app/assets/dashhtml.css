@@ -65,7 +65,7 @@
     margin: 0px;
 }
 
-html, body { overflow-x: hidden !important; }
+/*html, body { overflow-x: hidden !important; }*/
 
 .navbar {
     padding: 0px 0px 0px 0px !important;
@@ -115,12 +115,12 @@ a:focus {
     border: none;
 }
 #app-content {
-    margin: 5px 5px 5px 5px !important;
+    margin: 0px 0px 0px 0px !important;
 }
 
 #navbar-button-container {
-    padding-right: 5px !important;
-    padding-left: 5px !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
     box-shadow: none;
     outline: none !important;
     border: none;
@@ -331,4 +331,8 @@ ul ul a {
     }
 }
 
-
+#_dash-app-content {
+    padding: 0px 0px 0px 0px !important;
+    margin: 0px 0px 0px 0px !important;
+    width: 100% !important;
+}

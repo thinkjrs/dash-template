@@ -79,21 +79,6 @@ class MFDash(dash.Dash):
 
         <!-- Page Content  -->
         <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light"> 
-                <div class="container-fluid", id="navbar-button-container">
-
-                    <button type="button" id="sidebarCollapse" class="btn ">
-                        <i class="fas fa-align-left"></i>
-                    </button>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Type an artist" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                    <button type="button" id="userButton-navbar" class="btn btn-light">
-                        <i class="fas fa-user"></i>
-                    </button>
-                </div>
-            </nav>
             <div id="app-content">
                 {app_entry}
             </div>
