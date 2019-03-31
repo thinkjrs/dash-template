@@ -70,7 +70,7 @@ app.layout = html.Div(id='dash-container-fluid', children=[
             ),
             html.Div(className='col-xs-1 ml-auto',
                 children=[
-                    html.Button(className='button',
+                    html.Button(className='btn',
                         type='button', 
                         id='userButton-navbar',
                         children=html.I(className="fas fa-user"),

@@ -151,7 +151,6 @@ a:focus {
     outline: none !important;
     border: none !important;
     background: none !important;
-    margin: auto !important;
 }
 .no-gutters{
     margin-right: 0 !important;
